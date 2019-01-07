@@ -35,7 +35,7 @@ public class email {
 		case 1:
 			return "sales";
 		case 2:
-			return "Accoutancy";
+			return "Accountancy";
 		case 3:
 			return "Developing";
 		default :
