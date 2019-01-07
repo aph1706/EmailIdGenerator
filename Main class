@@ -1,0 +1,9 @@
+package EmailIdGenerator;
+
+public class Main {
+	public static void main(String[] args)
+	{
+		email em1 = new email("Microsoft");
+		System.out.println("(:    mail Id created   :)");
+	}
+}
