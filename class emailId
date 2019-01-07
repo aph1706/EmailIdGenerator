@@ -1,0 +1,70 @@
+package EmaildGenerator;
+import java.util.*;
+public class email {
+	private String first_name;
+	private String last_name;
+	private String password;
+	private String department;
+	private String changPwd ;
+	private int mailBoxCapacity;
+	Scanner scan = new Scanner(System.in);
+	email(String companyName)
+	{
+		this.first_name=first_name;
+		this.last_name=last_name;	
+		System.out.println("Enter First name :)");
+		first_name = scan.nextLine();
+		System.out.println("Enter the Last name :) ") ;
+		last_name = scan.next();
+		//System.out.println("Email created :"+first_name+" "+last_name);
+		System.out.println("Welcome " + first_name + " " + last_name + "\n just few steps away");
+		department = setDep();
+		System.out.println("Department : "+department);
+		System.out.println(" Your Email Id is : ");
+		String mailId = generateEmail(first_name,last_name,companyName);
+		System.out.println(mailId);
+		String password = randpas();
+		System.out.println("your password is : "+password);
+	}
+	private String setDep()
+	{
+		System.out.println("choose the Department of work \n1-Sales\n2-Accounting\n3-Devlopment");
+		int sel = scan.nextInt();
+		switch(sel)
+		{
+		case 1:
+			return "sales";
+		case 2:
+			return "Accoutancy";
+		case 3:
+			return "Developing";
+		default :
+			return "";
+		}
+	}
+	private String randpas()
+	{
+		String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*_+=-0987654321";
+		 char[] a = new char[10];
+		int rand;
+		for(int i=0;i<10;i++)
+		{
+			rand =(int)(Math.random()*passwordSet.length());
+			a[i] = passwordSet.charAt(rand);
+		}
+		System.out.println("If random password is fine ENTER Y\n To Change password Enter N");
+		String check ;
+		check = scan.next();
+		if(check.charAt(0) == 'Y' || check.charAt(0) == 'y')
+			return new String(a);
+		else 
+			System.out.println("Enter the new password");
+			return new String(scan.next());
+	}
+	private String generateEmail(String fn , String ln , String compName )
+	{
+		String email;
+		email = fn+"."+ln+"@"+this.department+"." + compName +".com" ;
+		return email;
+	}
+}
